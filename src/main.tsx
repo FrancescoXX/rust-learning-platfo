@@ -7,7 +7,6 @@ import { ErrorFallback } from './ErrorFallback.tsx'
 import { ClerkAuthProvider } from './components/ClerkAuthProvider.tsx'
 
 import "./main.css"
-import "./styles/theme.css"
 import "./index.css"
 
 createRoot(document.getElementById('root')!).render(
