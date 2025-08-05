@@ -2,50 +2,50 @@
 
 Thank you for your interest in contributing to RustCraft! We welcome contributions from developers of all skill levels.
 
-## 🚀 Getting Started
+   ```bash
 
-1. **Fork the repository** on GitHub
-2. **Clone your fork** locally:
-   ```bash
-   git clone https://github.com/your-username/rustcraft.git
-   cd rustcraft
-   ```
 3. **Install dependencies**:
-   ```bash
    npm install
-   ```
-4. **Start the development server**:
    ```bash
    npm run dev
+
    ```
-
-## 🛠️ Development Workflow
-
-1. **Create a new branch** for your feature/fix:
+3. **Install dependencies**:
+   git che
+   npm install
+   ```
+   ```
    ```bash
-   git checkout -b feature/your-feature-name
-   ```
-2. **Make your changes** following our coding standards
-3. **Test your changes** locally
-4. **Commit your changes** with a descriptive message:
+   npm run dev
+6. **C
+
+- Use TypeScript for all co
+
+
    ```bash
-   git commit -m "feat: add interactive code editor component"
+- Use shadcn/ui components when possible
    ```
-5. **Push to your fork**:
+- Use `useKV` hook for data that needs to persist betwe
+- Follow the existing patterns i
+### File Structure
+src/
+│   ├── ui/             # shadcn/ui components (don't modify)
+   ```
+├── types/              #
    ```bash
-   git push origin feature/your-feature-name
+## 🎯 Areas for Contribution
    ```
-6. **Create a Pull Request** on GitHub
+- User authentication system
 
-## 📝 Coding Standards
+### 🎨 Design & UX
 
-### React Components
-- Use TypeScript for all components
-- Follow functional component patterns with hooks
-- Use descriptive component and prop names
-- Add JSDoc comments for complex components
+- Dark mode implemen
+### 📚 Content
+- Code examples and exercises
+- Tutorial content
+### 🧪 Testing
 
-### Styling
+- Performan
 - Use Tailwind CSS utility classes
 - Follow the existing color scheme defined in `src/index.css`
 - Use shadcn/ui components when possible
@@ -94,56 +94,55 @@ src/
 - End-to-end testing
 - Performance optimization
 
-## 📋 Pull Request Guidelines
 
-1. **Keep PRs focused** - One feature/fix per PR
-2. **Write clear descriptions** - Explain what and why
-3. **Include screenshots** for UI changes
-4. **Test thoroughly** before submitting
-5. **Update documentation** if needed
 
-### PR Template
-```markdown
-## Description
-Brief description of changes
 
-## Type of Change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Documentation update
-- [ ] Performance improvement
 
-## Testing
-- [ ] Tested locally
-- [ ] Responsive design verified
-- [ ] Accessibility checked
 
-## Screenshots (if applicable)
-Add screenshots of UI changes
-```
 
-## 🐛 Reporting Issues
 
-When reporting bugs or requesting features:
 
-1. **Search existing issues** first
-2. **Use issue templates** when available
-3. **Provide detailed information**:
-   - Steps to reproduce
-   - Expected vs actual behavior
-   - Browser/OS information
-   - Screenshots if relevant
 
-## 💬 Getting Help
 
-- **Discord**: Join our community (link coming soon)
-- **GitHub Discussions**: For general questions
-- **Issues**: For bug reports and feature requests
 
-## 📄 License
 
-By contributing to RustCraft, you agree that your contributions will be licensed under the MIT License.
 
-## 🙏 Recognition
 
-Contributors will be recognized in our README and on the website. We appreciate every contribution, no matter how small!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
