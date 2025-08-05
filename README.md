@@ -1,23 +1,73 @@
-# ✨ Welcome to Your Spark Template!
-You've just launched your brand-new Spark Template Codespace — everything’s fired up and ready for you to explore, build, and create with Spark!
+# 🦀 RustCraft - Master Rust Programming
 
-This template is your blank canvas. It comes with a minimal setup to help you get started quickly with Spark development.
+**The most effective way to learn Rust programming through interactive lessons, real-world projects, and community support.**
 
-🚀 What's Inside?
-- A clean, minimal Spark environment
-- Pre-configured for local development
-- Ready to scale with your ideas
-  
-🧠 What Can You Do?
+## 🚀 About RustCraft
 
-Right now, this is just a starting point — the perfect place to begin building and testing your Spark applications.
+RustCraft is a modern learning platform designed to make Rust programming accessible to developers of all levels. We believe that Rust doesn't have to be intimidating - with the right approach, anyone can master memory-safe, high-performance programming.
 
-🧹 Just Exploring?
-No problem! If you were just checking things out and don’t need to keep this code:
+### ✨ Key Features
 
-- Simply delete your Spark.
-- Everything will be cleaned up — no traces left behind.
+- **Interactive Learning**: Write and execute Rust code directly in your browser
+- **Memory Safety First**: Master Rust's ownership system through visual examples
+- **Performance Focused**: Learn to write blazingly fast, efficient code
+- **Community Driven**: Join a supportive community of Rust learners
+- **Structured Path**: Follow a carefully crafted curriculum from beginner to expert
+- **Real Projects**: Build actual applications that showcase Rust's capabilities
 
-📄 License For Spark Template Resources 
+## 🛠️ Tech Stack
 
-The Spark Template files and resources from GitHub are licensed under the terms of the MIT license, Copyright GitHub, Inc.
+- **Frontend**: React + TypeScript + Vite
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Icons**: Phosphor Icons
+- **Notifications**: Sonner
+- **Storage**: Spark KV (persistent key-value storage)
+
+## 🎯 Current Status
+
+This is the initial landing page for RustCraft. The platform is currently in development, and we're building a waitlist of interested developers.
+
+## 🚀 Getting Started
+
+1. Clone this repository
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
+4. Open your browser to `http://localhost:5173`
+
+## 📋 Project Structure
+
+```
+src/
+├── App.tsx          # Main application component
+├── index.css        # Global styles and theme
+├── prd.md          # Product Requirements Document
+├── components/ui/   # shadcn/ui components
+└── assets/         # Static assets (images, videos, etc.)
+```
+
+## 🎨 Design Philosophy
+
+RustCraft follows modern design principles with a focus on:
+- Clean, minimalist interface
+- Rust-inspired orange color palette
+- Excellent typography using Inter font
+- Smooth interactions and micro-animations
+- Mobile-first responsive design
+
+## 🤝 Contributing
+
+We welcome contributions! Whether you're interested in:
+- Adding new learning content
+- Improving the user interface
+- Fixing bugs or performance issues
+- Suggesting new features
+
+Please feel free to open an issue or submit a pull request.
+
+## 📧 Stay Updated
+
+Join our newsletter to get updates on RustCraft's development and be among the first to access the platform when it launches.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
