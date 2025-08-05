@@ -7,11 +7,15 @@ import { Toaster } from "@/components/ui/sonner"
 import { useKV } from '@github/spark/hooks'
 import { Code, Shield, Zap, Users, BookOpen, CheckCircle } from "@phosphor-icons/react"
 import { toast } from 'sonner'
+import { AuthButtons } from './components/AuthButtons'
+import { UserDashboard } from './components/UserDashboard'
+import { useUser } from '@clerk/clerk-react'
 
 function App() {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [subscribers, setSubscribers] = useKV('newsletter-subscribers', [])
+  const { isSignedIn, user } = useUser()
 
   const handleNewsletterSignup = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -81,7 +85,7 @@ function App() {
           <nav className="hidden md:flex items-center space-x-6">
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
             <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
-            <Button variant="outline" size="sm">Sign In</Button>
+            <AuthButtons />
           </nav>
         </div>
       </header>
@@ -89,38 +93,66 @@ function App() {
       {/* Hero Section */}
       <section className="py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">
-          <Badge variant="secondary" className="mb-6">
-            🦀 Coming Soon
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Master Rust Programming
-            <span className="block text-primary">The Safe Way</span>
-          </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Learn Rust through interactive lessons, real-world projects, and a supportive community. 
-            Build memory-safe, blazingly fast applications with confidence.
-          </p>
-          
-          {/* Newsletter Signup */}
-          <form onSubmit={handleNewsletterSignup} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1"
-              required
-            />
-            <Button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-primary/90">
-              {isSubmitting ? 'Subscribing...' : 'Get Early Access'}
-            </Button>
-          </form>
-          
-          <p className="text-sm text-muted-foreground">
-            Join {subscribers.length > 0 ? `${subscribers.length} other` : ''} developers waiting for launch
-          </p>
+          {isSignedIn ? (
+            <>
+              <Badge variant="secondary" className="mb-6">
+                🎉 Welcome back, {user.firstName || user.username}!
+              </Badge>
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+                Continue Your Rust Journey
+                <span className="block text-primary">Start Learning Today</span>
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+                Jump back into your Rust learning path or explore new concepts. Your progress is saved and waiting for you.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8">
+                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  Continue Learning
+                </Button>
+                <Button size="lg" variant="outline">
+                  Browse Lessons
+                </Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <Badge variant="secondary" className="mb-6">
+                🦀 Coming Soon
+              </Badge>
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+                Master Rust Programming
+                <span className="block text-primary">The Safe Way</span>
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+                Learn Rust through interactive lessons, real-world projects, and a supportive community. 
+                Build memory-safe, blazingly fast applications with confidence.
+              </p>
+              
+              {/* Newsletter Signup */}
+              <form onSubmit={handleNewsletterSignup} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1"
+                  required
+                />
+                <Button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-primary/90">
+                  {isSubmitting ? 'Subscribing...' : 'Get Early Access'}
+                </Button>
+              </form>
+              
+              <p className="text-sm text-muted-foreground">
+                Join {subscribers.length > 0 ? `${subscribers.length} other` : ''} developers waiting for launch
+              </p>
+            </>
+          )}
         </div>
       </section>
+
+      {/* User Dashboard - Only show for authenticated users */}
+      {isSignedIn && <UserDashboard />}
 
       {/* Features Section */}
       <section id="features" className="py-20 bg-secondary/30">
@@ -212,29 +244,31 @@ function App() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your Rust Journey?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Be among the first to experience the most effective way to learn Rust programming.
-          </p>
-          <form onSubmit={handleNewsletterSignup} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-primary-foreground text-foreground"
-              required
-            />
-            <Button type="submit" disabled={isSubmitting} variant="secondary">
-              {isSubmitting ? 'Subscribing...' : 'Join Waitlist'}
-            </Button>
-          </form>
-        </div>
-      </section>
+      {!isSignedIn && (
+        <section className="py-20 bg-primary text-primary-foreground">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Start Your Rust Journey?
+            </h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+              Be among the first to experience the most effective way to learn Rust programming.
+            </p>
+            <form onSubmit={handleNewsletterSignup} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 bg-primary-foreground text-foreground"
+                required
+              />
+              <Button type="submit" disabled={isSubmitting} variant="secondary">
+                {isSubmitting ? 'Subscribing...' : 'Join Waitlist'}
+              </Button>
+            </form>
+          </div>
+        </section>
+      )}
 
       {/* Footer */}
       <footer className="border-t border-border py-12">
