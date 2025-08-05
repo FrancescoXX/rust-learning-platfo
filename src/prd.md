@@ -6,7 +6,7 @@
 - **Experience Qualities**: Professional, approachable, and inspiring.
 
 ## Project Classification & Approach
-- **Complexity Level**: Light Application (starting with landing page, evolving to educational features)
+- **Complexity Level**: Content Showcase (simple landing page focused on information and interest capture)
 - **Primary User Activity**: Consuming information and expressing interest in learning
 
 ## Thought Process for Feature Selection

@@ -12,7 +12,6 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@clerk/clerk-react": "^5.38.1",
         "@github/spark": "^0.0.1",
         "@heroicons/react": "^2.2.0",
         "@hookform/resolvers": "^4.1.3",
